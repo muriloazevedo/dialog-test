@@ -11,7 +11,7 @@ development:
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: dialog_development
+  database: dialog_dev
 staging:
   <<: *default
   adapter: postgresql
