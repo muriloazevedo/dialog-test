@@ -1,0 +1,22 @@
+<div class="row">
+<% @users.each do |user|%>
+  <div class="col s4 m4">
+    <div class="card">
+      <div class="card-image">
+        <img src="<%= user.picture%>" width="200" />
+        <span class="card-title"><%= user.name %></span>
+      </div>
+      <div class="card-content">
+        <p><strong>name:</strong> <%= user.name%></p>
+        <p><strong>age:</strong> <%= user.age%></p>
+        <p><strong>eye_color:</strong> <%= user.eye_color%></p>
+        <p><strong>company:</strong> <%= user.company%></p>
+        <p><strong>email:</strong> <%= user.email%></p>
+      </div>
+      <div class="card-action">
+        <%= link_to('View profile', user)%>
+      </div>
+    </div>
+  </div>
+<% end%>
+</div>

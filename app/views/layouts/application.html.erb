@@ -8,9 +8,35 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   </head>
 
   <body>
-    <%= yield %>
+    
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo black-text">MySocial</a>
+        <ul class="right">
+          <li>
+            <form action="<%= url_for('/users') %>" method="get">
+              <div class="container">
+                <div class="row">
+                  <div class="input-field inline col s12 m6">
+                    <input id="search" type="text" name="q" class="validate" placeholder="Search...">
+                  </div>
+                  <div class="input-field inline col s6">
+                    <button class="waves-effect waves-light btn-small indigo" type="submit">Search</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
