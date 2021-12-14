@@ -18,7 +18,7 @@ weber = {
   greeting: "Hello, Weber! You have 9 unread messages."
 }
 
-User.create!(weber)
+wuser = User.create!(weber)
 
 patti = {
   index: 0,
@@ -32,4 +32,6 @@ patti = {
   greeting: 'Hello, Patti Mckenzie! You have 2 unread messages.'
 }
 
-User.create!(patti)
+user = User.create!(patti)
+
+user.friends << wuser

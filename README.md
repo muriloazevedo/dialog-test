@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Comandos para rodar o container:
+```bash
+docker-compose build
+``` 
 
-Things you may want to cover:
+```bash
+docker-compose run web rake db:create db:migrate db:seed
+```
 
-* Ruby version
+```bash
+docker-compose up
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Considerações importantes:
+1. A interface está utilizando materializecss( https://materializecss.com/ )
+2. Utilizei um padrão de service objects com contratos para separar a lógica de negócio do controller
+3. Adicionei testes na model e services.
+4. A busca foi implementada de forma simples, portanto o que for digitado no campo, irá buscar por nome, email e empresa.
