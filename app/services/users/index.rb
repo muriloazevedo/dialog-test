@@ -5,7 +5,7 @@ module Users
 
     contract_class Users::IndexContract
 
-    def initialize(params)
+    def initialize(params = {})
       create_contract(params.to_h)
     end
 
