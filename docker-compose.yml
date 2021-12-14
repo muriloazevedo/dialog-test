@@ -1,0 +1,35 @@
+version: '3.6'
+
+x-default: &default
+  env_file: .env
+  depends_on:
+    - db
+  entrypoint: './entrypoint.sh'
+  stdin_open: true
+  tty: true
+  volumes:
+      - .:/app
+  links:
+    - db
+services:
+  web:
+    <<: *default
+    build:
+      context: .
+      args:
+        - USER
+        - UID
+    command: './bin/rails server -b 0.0.0.0 -p 3000 --pid /tmp/rails_server.pid'
+    ports:
+      - '3000:3000'
+    extra_hosts:
+      - 'demo.dialog.local: 127.0.0.1'
+  db:
+    image: postgres:12.0
+    environment:
+      POSTGRES_USER: api
+      POSTGRES_PASSWORD: password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
